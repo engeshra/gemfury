@@ -63,7 +63,7 @@ module Gemfury
     # @param version_id [String] Gemfury version_id
     # @param options [Hash] Faraday client options
     # @return [Array<Hash>]
-    def get_details(name, options = {})
+    def get_details(name, version_id, options = {})
       ensure_ready!(:authorization)
       url = "gems/#{escape(name)}/versions/#{escape(version_id)}/details"
       response = connection.get(url, options)
