@@ -55,7 +55,9 @@ module Gemfury
     def versions(name, options = {})
       ensure_ready!(:authorization)
       url = "gems/#{escape(name)}/versions"
+      puts url
       response = connection.get(url, options)
+      puts response
       checked_response_body(response)
     end
     
@@ -66,7 +68,9 @@ module Gemfury
     def get_details(name, version_id, options = {})
       ensure_ready!(:authorization)
       url = "gems/#{escape(name)}/versions/#{escape(version_id)}/details"
+      puts url
       response = connection.get(url, options)
+      puts response 
       checked_response_body(response)
     end
 
