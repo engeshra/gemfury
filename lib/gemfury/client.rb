@@ -58,6 +58,17 @@ module Gemfury
       response = connection.get(url, options)
       checked_response_body(response)
     end
+    
+    # Get more details for a version
+    # @param version_id [String] Gemfury version_id
+    # @param options [Hash] Faraday client options
+    # @return [Array<Hash>]
+    def get_details(name, options = {})
+      ensure_ready!(:authorization)
+      url = "gems/#{escape(name)}/versions/#{escape(version_id)}/details"
+      response = connection.get(url, options)
+      checked_response_body(response)
+    end
 
     # Delete an artifact version
     # @param name [String] the name of the artifact
